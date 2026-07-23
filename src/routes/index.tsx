@@ -163,6 +163,7 @@ function PrimoTechLanding() {
         </a>
         <nav className="hidden gap-8 text-sm text-white/70 md:flex">
           <a href="#recursos" className="hover:text-white transition">Recursos</a>
+          <a href="#como-funciona" className="hover:text-white transition">Como funciona</a>
           <a href="#planos" className="hover:text-white transition">Planos</a>
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
@@ -241,6 +242,71 @@ function PrimoTechLanding() {
               <p className="mt-2 text-sm leading-relaxed text-white/60">{f.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Como funciona */}
+      <section id="como-funciona" className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+        <div className="mb-14 text-center">
+          <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Como funciona</div>
+          <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+            Comece a economizar em 3 passos
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-white/60">
+            Simples, rápido e sem complicação. Em menos de 2 minutos você está economizando.
+          </p>
+        </div>
+
+        <div className="relative grid gap-6 md:grid-cols-3">
+          {/* Linha conectora (desktop) */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent md:block"
+          />
+
+          {[
+            {
+              step: "01",
+              title: "Instale a extensão",
+              desc: "Baixe a Primo Tech na Chrome Web Store em um clique. Compatível com todos os navegadores baseados em Chromium.",
+              icon: "⬇️",
+            },
+            {
+              step: "02",
+              title: "Conecte seu Lovable",
+              desc: "Faça login com sua conta Lovable. A extensão se integra automaticamente ao seu workspace sem configuração manual.",
+              icon: "🔗",
+            },
+            {
+              step: "03",
+              title: "Economize automaticamente",
+              desc: "Pronto! A partir daqui todos os créditos passam pela otimização inteligente da Primo Tech. Você economiza sem fazer nada.",
+              icon: "💰",
+            },
+          ].map((s) => (
+            <div
+              key={s.step}
+              className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur transition hover:border-white/20 hover:bg-white/[0.06]"
+            >
+              <div className="relative mx-auto mb-6 grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-violet-600 via-pink-500 to-orange-500 text-3xl shadow-[0_10px_30px_-10px_rgba(236,72,153,0.6)]">
+                {s.icon}
+                <span className="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-[#050505] text-xs font-bold text-white/90">
+                  {s.step}
+                </span>
+              </div>
+              <h3 className="text-center text-xl font-semibold">{s.title}</h3>
+              <p className="mt-3 text-center text-sm leading-relaxed text-white/60">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            href="#planos"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3.5 text-base font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
+          >
+            Quero começar agora →
+          </a>
         </div>
       </section>
 
