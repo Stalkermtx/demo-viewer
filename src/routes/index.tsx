@@ -129,6 +129,7 @@ function PrimoTechLanding() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#050505] text-white">
+      <MoneyRain />
       {/* Background */}
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <svg width="0" height="0" className="absolute">
