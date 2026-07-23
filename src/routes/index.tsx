@@ -226,9 +226,12 @@ function PrimoTechLanding() {
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="#planos"
+            href={wa("Olá! Vim pela landing da Vorax Lovable e quero começar meu teste grátis agora. 🚀")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3.5 text-base font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
           >
+
             <span className="relative z-10">Começar teste grátis →</span>
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
           </a>
