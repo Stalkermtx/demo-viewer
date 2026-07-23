@@ -185,7 +185,7 @@
 }
 
 .money-drop {
-  animation: money-fall 1.5s cubic-bezier(0.25, 0.5, 0.55, 1) forwards;
+  animation: money-fall 1.6s cubic-bezier(0.25, 0.5, 0.55, 1) forwards !important;
   will-change: transform, opacity;
   filter: drop-shadow(0 4px 12px rgba(236, 72, 153, 0.35));
 }
