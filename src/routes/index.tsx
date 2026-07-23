@@ -326,7 +326,77 @@ function PrimoTechLanding() {
         </div>
       </section>
 
+      {/* Calculadora */}
+      <section id="calculadora" className="relative z-10 mx-auto max-w-5xl px-6 py-20">
+        <div className="mb-10 text-center">
+          <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Calculadora</div>
+          <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+            Quanto você economizaria?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-white/60">
+            Arraste o valor que você gasta hoje no Lovable e veja o quanto sobra no bolso com a Vorax.
+          </p>
+        </div>
+
+        <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur sm:p-10">
+          <div className="flex items-baseline justify-between">
+            <label htmlFor="spend" className="text-sm font-semibold text-white/70">
+              Gasto mensal atual
+            </label>
+            <div className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
+              R$ {spend}
+            </div>
+          </div>
+          <input
+            id="spend"
+            type="range"
+            min={20}
+            max={2000}
+            step={10}
+            value={spend}
+            onChange={(e) => setSpend(Number(e.target.value))}
+            className="mt-4 w-full accent-pink-500"
+            aria-label="Gasto mensal no Lovable em reais"
+          />
+          <div className="mt-2 flex justify-between text-xs text-white/50">
+            <span>R$ 20</span>
+            <span>R$ 2.000</span>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-6 text-center">
+              <div className="text-xs font-semibold uppercase tracking-widest text-white/50">
+                Economia mensal
+              </div>
+              <div className="mt-2 bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+                R$ {savings}
+              </div>
+              <div className="mt-1 text-xs text-white/50">com desconto de 70%</div>
+            </div>
+            <div className="rounded-2xl border border-transparent bg-gradient-to-br from-violet-600/25 via-pink-500/15 to-orange-500/20 p-6 text-center shadow-[0_10px_40px_-15px_rgba(236,72,153,0.6)]">
+              <div className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                Economia anual
+              </div>
+              <div className="mt-2 bg-gradient-to-r from-violet-300 via-pink-300 to-orange-300 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+                R$ {yearly.toLocaleString("pt-BR")}
+              </div>
+              <div className="mt-1 text-xs text-white/70">no seu bolso todo ano 💸</div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <a
+              href="#planos"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
+            >
+              Quero economizar isso →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
+
       <section id="planos" className="relative z-10 mx-auto max-w-7xl px-6 py-20">
         <div className="mb-14 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Planos</div>
