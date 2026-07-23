@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Primo Tech — Domine o Lovable com Economia de Elite" },
+      { name: "description", content: "A Extensão Primo Tech turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Primo Tech — Domine o Lovable com Economia de Elite" },
+      { property: "og:description", content: "A Extensão Primo Tech turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Primo Tech — Domine o Lovable com Economia de Elite" },
+      { name: "twitter:description", content: "A Extensão Primo Tech turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/daabfa48-6be5-48f7-ad98-a18bed513498/id-preview-1945438a--db11e344-a33c-4593-81a7-a3fdf2e00ce9.lovable.app-1784487218696.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/daabfa48-6be5-48f7-ad98-a18bed513498/id-preview-1945438a--db11e344-a33c-4593-81a7-a3fdf2e00ce9.lovable.app-1784487218696.png" },
     ],
     links: [
       {
