@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { MoneyRain } from "@/components/MoneyRain";
 import ogImage from "@/assets/og-primo-tech.jpg";
 
 const OG_IMAGE_URL = `https://demo-viewer.lovable.app${ogImage}`;
@@ -128,6 +129,7 @@ function PrimoTechLanding() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#050505] text-white">
+      <MoneyRain />
       {/* Background */}
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <svg width="0" height="0" className="absolute">
