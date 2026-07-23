@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { MoneyRain } from "@/components/MoneyRain";
 import ogImage from "@/assets/og-primo-tech.jpg";
 
 const OG_IMAGE_URL = `https://demo-viewer.lovable.app${ogImage}`;
