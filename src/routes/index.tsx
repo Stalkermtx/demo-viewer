@@ -467,15 +467,19 @@ function PrimoTechLanding() {
                   </li>
                 ))}
               </ul>
-              <button
-                className={`mt-8 w-full rounded-full py-3 text-sm font-semibold transition ${
+              <a
+                href={wa(p.waMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition ${
                   p.highlight
                     ? "bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 text-white hover:scale-[1.02]"
                     : "border border-white/15 bg-white/5 text-white hover:bg-white/10"
                 }`}
               >
                 Ativar agora
-              </button>
+              </a>
+
             </div>
           ))}
         </div>
