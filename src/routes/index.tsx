@@ -58,12 +58,19 @@ function Heart({
   );
 }
 
+const WHATSAPP_NUMBER = "5565992203318";
+const wa = (msg: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
 function PrimoTechLanding() {
   const [muted, setMuted] = useState(true);
   const [light, setLight] = useState(false);
   const [spend, setSpend] = useState(200);
   const savings = Math.round(spend * 0.7);
   const yearly = savings * 12;
+
+
+
 
 
 
