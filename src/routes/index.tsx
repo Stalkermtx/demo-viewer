@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import ogImage from "@/assets/og-primo-tech.jpg";
+
+const OG_IMAGE_URL = `https://demo-viewer.lovable.app${ogImage}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,7 +21,11 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Primo Tech" },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE_URL },
     ],
   }),
   component: PrimoTechLanding,
