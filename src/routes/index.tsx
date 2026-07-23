@@ -409,11 +409,18 @@ function PrimoTechLanding() {
 
           <div className="mt-6 text-center">
             <a
-              href="#planos"
+              href={wa(
+                `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${spend}/mês, economia de R$ ${savings}/mês (R$ ${yearly.toLocaleString(
+                  "pt-BR",
+                )}/ano). Quero começar a economizar!`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
             >
               Quero economizar isso →
             </a>
+
           </div>
         </div>
       </section>
