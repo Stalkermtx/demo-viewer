@@ -8,14 +8,8 @@ export function MoneyRain() {
   const [drops, setDrops] = useState<Drop[]>([]);
 
   useEffect(() => {
-    const reduced =
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) return;
-
-    const handler = (e: MouseEvent) => {
+    const handler = (e: PointerEvent | MouseEvent) => {
       const target = e.target as HTMLElement | null;
-      // avoid spawning inside inputs/textareas/selects
       if (target?.closest("input, textarea, select")) return;
 
       const count = 8 + Math.floor(Math.random() * 4);
@@ -25,18 +19,19 @@ export function MoneyRain() {
         y: e.clientY,
         dx: (Math.random() - 0.5) * 220,
         rot: (Math.random() - 0.5) * 720,
-        size: 20 + Math.random() * 22,
+        size: 22 + Math.random() * 22,
       }));
       setDrops((prev) => [...prev, ...newDrops]);
 
       const ids = new Set(newDrops.map((d) => d.id));
       window.setTimeout(() => {
         setDrops((prev) => prev.filter((d) => !ids.has(d.id)));
-      }, 1600);
+      }, 1800);
     };
 
-    window.addEventListener("click", handler);
-    return () => window.removeEventListener("click", handler);
+    // capture phase + pointerdown ensures we catch it even if inner handlers stopPropagation
+    window.addEventListener("pointerdown", handler, true);
+    return () => window.removeEventListener("pointerdown", handler, true);
   }, []);
 
   return (
