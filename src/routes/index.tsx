@@ -198,11 +198,14 @@ function PrimoTechLanding() {
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
         <a
-          href="#planos"
+          href={wa("Olá! Quero começar o teste grátis de 3 dias da Vorax Lovable. Podem me enviar as instruções?")}
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded-full bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur transition hover:bg-white/20"
         >
           Testar grátis
         </a>
+
       </header>
 
       {/* Hero */}
