@@ -60,6 +60,12 @@ function Heart({
 
 function PrimoTechLanding() {
   const [muted, setMuted] = useState(true);
+  const [light, setLight] = useState(false);
+  const [spend, setSpend] = useState(200);
+  const savings = Math.round(spend * 0.7);
+  const yearly = savings * 12;
+
+
 
   const plans = [
     {
