@@ -338,11 +338,14 @@ function PrimoTechLanding() {
 
         <div className="mt-12 text-center">
           <a
-            href="#planos"
+            href={wa("Olá! Já entendi como funciona a Vorax Lovable e quero começar agora. Como faço o passo a passo?")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3.5 text-base font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
           >
             Quero começar agora →
           </a>
+
         </div>
       </section>
 
