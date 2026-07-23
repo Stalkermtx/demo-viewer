@@ -87,6 +87,8 @@ function PrimoTechLanding() {
         "Ativação em minutos",
       ],
       highlight: false,
+      waMessage:
+        "Olá! Quero ativar o plano *Starter* da Vorax Lovable (R$ 39/mês) e começar meu teste grátis de 3 dias. Pode me ajudar?",
     },
     {
       name: "Pro Elite",
@@ -101,6 +103,8 @@ function PrimoTechLanding() {
         "Templates exclusivos",
       ],
       highlight: true,
+      waMessage:
+        "Olá! Quero ativar o plano *Pro Elite* da Vorax Lovable (R$ 89/mês) com economia de 70% e suporte VIP. Como faço para começar?",
     },
     {
       name: "Studio",
@@ -114,8 +118,11 @@ function PrimoTechLanding() {
         "White-label opcional",
       ],
       highlight: false,
+      waMessage:
+        "Olá! Tenho uma agência e quero contratar o plano *Studio* da Vorax Lovable (R$ 189/mês). Gostaria de falar com um consultor.",
     },
   ];
+
 
   const features = [
     {
