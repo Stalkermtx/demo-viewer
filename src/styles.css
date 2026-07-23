@@ -189,3 +189,17 @@
   will-change: transform, opacity;
   filter: drop-shadow(0 4px 12px rgba(236, 72, 153, 0.35));
 }
+
+/* Hide the "Edit with Lovable" badge on published deployments */
+#lovable-badge,
+a[href*="lovable.dev"][href*="badge"],
+a[href*="lovable.dev/?utm"],
+[data-lovable-badge],
+iframe[src*="lovable.dev/badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
