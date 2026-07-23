@@ -451,7 +451,70 @@ function PrimoTechLanding() {
         </div>
       </section>
 
+      {/* Comparativo */}
+      <section id="comparativo" className="relative z-10 mx-auto max-w-6xl px-6 py-20">
+        <div className="mb-10 text-center">
+          <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Comparativo</div>
+          <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+            Compare os planos lado a lado
+          </h2>
+        </div>
+
+        <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur">
+          <table className="w-full min-w-[640px] text-left text-sm">
+            <thead>
+              <tr className="border-b border-white/10 text-xs uppercase tracking-widest text-white/50">
+                <th className="p-5 font-semibold">Recurso</th>
+                <th className="p-5 font-semibold text-center">Starter</th>
+                <th className="p-5 font-semibold text-center">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+                      Pro Elite
+                    </span>
+                    <span className="rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                      TOP
+                    </span>
+                  </span>
+                </th>
+                <th className="p-5 font-semibold text-center">Studio</th>
+              </tr>
+            </thead>
+            <tbody className="text-white/80">
+              {[
+                { label: "Economia em créditos", values: ["Até 40%", "Até 70%", "Até 70%"] },
+                { label: "Workspaces Lovable", values: ["1", "3", "Ilimitados"] },
+                { label: "Suporte", values: ["Comunidade", "VIP prioritário", "24/7 dedicado"] },
+                { label: "Templates exclusivos", values: [false, true, true] },
+                { label: "SLA garantido", values: [false, false, true] },
+                { label: "White-label", values: [false, false, "Opcional"] },
+                { label: "Gerente de conta", values: [false, false, true] },
+                { label: "Teste grátis", values: ["3 dias", "3 dias", "3 dias"] },
+              ].map((row, i) => (
+                <tr key={row.label} className={i % 2 ? "bg-white/[0.02]" : ""}>
+                  <td className="p-4 font-medium text-white/90">{row.label}</td>
+                  {row.values.map((v, idx) => (
+                    <td
+                      key={idx}
+                      className={`p-4 text-center ${idx === 1 ? "bg-gradient-to-b from-pink-500/5 to-violet-500/5" : ""}`}
+                    >
+                      {v === true ? (
+                        <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-gradient-to-br from-violet-500 to-pink-500 text-xs text-white">✓</span>
+                      ) : v === false ? (
+                        <span className="text-white/30">—</span>
+                      ) : (
+                        v
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* FAQ */}
+
       <section id="faq" className="relative z-10 mx-auto max-w-3xl px-6 py-20">
         <div className="mb-10 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Dúvidas</div>
