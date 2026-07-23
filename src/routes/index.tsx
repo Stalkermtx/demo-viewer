@@ -339,11 +339,12 @@ function PrimoTechLanding() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl border p-8 backdrop-blur transition ${
+              className={`plan-card relative rounded-3xl border p-8 backdrop-blur ${
                 p.highlight
                   ? "border-transparent bg-gradient-to-b from-violet-600/20 via-pink-500/10 to-orange-500/10 shadow-[0_20px_60px_-20px_rgba(236,72,153,0.5)]"
                   : "border-white/10 bg-white/[0.03] hover:border-white/20"
               }`}
+
             >
               {p.highlight && (
                 <div className="absolute inset-x-0 -top-3 mx-auto w-fit rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-4 py-1 text-xs font-bold uppercase tracking-wider">
