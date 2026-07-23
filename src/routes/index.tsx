@@ -58,12 +58,19 @@ function Heart({
   );
 }
 
+const WHATSAPP_NUMBER = "5565992203318";
+const wa = (msg: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
 function PrimoTechLanding() {
   const [muted, setMuted] = useState(true);
   const [light, setLight] = useState(false);
   const [spend, setSpend] = useState(200);
   const savings = Math.round(spend * 0.7);
   const yearly = savings * 12;
+
+
+
 
 
 
@@ -80,6 +87,8 @@ function PrimoTechLanding() {
         "Ativação em minutos",
       ],
       highlight: false,
+      waMessage:
+        "Olá! Quero ativar o plano *Starter* da Vorax Lovable (R$ 39/mês) e começar meu teste grátis de 3 dias. Pode me ajudar?",
     },
     {
       name: "Pro Elite",
@@ -94,6 +103,8 @@ function PrimoTechLanding() {
         "Templates exclusivos",
       ],
       highlight: true,
+      waMessage:
+        "Olá! Quero ativar o plano *Pro Elite* da Vorax Lovable (R$ 89/mês) com economia de 70% e suporte VIP. Como faço para começar?",
     },
     {
       name: "Studio",
@@ -107,8 +118,11 @@ function PrimoTechLanding() {
         "White-label opcional",
       ],
       highlight: false,
+      waMessage:
+        "Olá! Tenho uma agência e quero contratar o plano *Studio* da Vorax Lovable (R$ 189/mês). Gostaria de falar com um consultor.",
     },
   ];
+
 
   const features = [
     {
@@ -184,11 +198,14 @@ function PrimoTechLanding() {
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
         <a
-          href="#planos"
+          href={wa("Olá! Quero começar o teste grátis de 3 dias da Vorax Lovable. Podem me enviar as instruções?")}
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded-full bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur transition hover:bg-white/20"
         >
           Testar grátis
         </a>
+
       </header>
 
       {/* Hero */}
@@ -209,9 +226,12 @@ function PrimoTechLanding() {
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="#planos"
+            href={wa("Olá! Vim pela landing da Vorax Lovable e quero começar meu teste grátis agora. 🚀")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3.5 text-base font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
           >
+
             <span className="relative z-10">Começar teste grátis →</span>
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
           </a>
@@ -318,11 +338,14 @@ function PrimoTechLanding() {
 
         <div className="mt-12 text-center">
           <a
-            href="#planos"
+            href={wa("Olá! Já entendi como funciona a Vorax Lovable e quero começar agora. Como faço o passo a passo?")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3.5 text-base font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
           >
             Quero começar agora →
           </a>
+
         </div>
       </section>
 
@@ -386,11 +409,18 @@ function PrimoTechLanding() {
 
           <div className="mt-6 text-center">
             <a
-              href="#planos"
+              href={wa(
+                `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${spend}/mês, economia de R$ ${savings}/mês (R$ ${yearly.toLocaleString(
+                  "pt-BR",
+                )}/ano). Quero começar a economizar!`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
             >
               Quero economizar isso →
             </a>
+
           </div>
         </div>
       </section>
@@ -437,15 +467,19 @@ function PrimoTechLanding() {
                   </li>
                 ))}
               </ul>
-              <button
-                className={`mt-8 w-full rounded-full py-3 text-sm font-semibold transition ${
+              <a
+                href={wa(p.waMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition ${
                   p.highlight
                     ? "bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 text-white hover:scale-[1.02]"
                     : "border border-white/15 bg-white/5 text-white hover:bg-white/10"
                 }`}
               >
                 Ativar agora
-              </button>
+              </a>
+
             </div>
           ))}
         </div>
@@ -563,11 +597,14 @@ function PrimoTechLanding() {
             Ative agora e comece a testar em menos de 2 minutos. Sem cartão. Sem enrolação.
           </p>
           <a
-            href="#planos"
+            href={wa("Olá! Estou pronto para ativar meu teste grátis da Vorax Lovable. Bora começar? 💸")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-flex rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-10 py-4 font-semibold shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-105"
           >
             Ativar teste grátis →
           </a>
+
         </div>
       </section>
 
