@@ -203,3 +203,55 @@ iframe[src*="lovable.dev/badge"] {
   width: 0 !important;
   height: 0 !important;
 }
+
+/* Light mode overrides for the landing page */
+.vorax-light {
+  background: #f6f5fb !important;
+  color: #0f172a !important;
+}
+.vorax-light .text-white { color: #0f172a !important; }
+.vorax-light .text-white\/90 { color: rgba(15,23,42,0.90) !important; }
+.vorax-light .text-white\/80 { color: rgba(15,23,42,0.80) !important; }
+.vorax-light .text-white\/70 { color: rgba(15,23,42,0.72) !important; }
+.vorax-light .text-white\/60 { color: rgba(15,23,42,0.62) !important; }
+.vorax-light .text-white\/50 { color: rgba(15,23,42,0.55) !important; }
+.vorax-light .text-white\/40 { color: rgba(15,23,42,0.45) !important; }
+.vorax-light .bg-white\/\[0\.03\] { background-color: rgba(15,23,42,0.03) !important; }
+.vorax-light .bg-white\/\[0\.06\] { background-color: rgba(15,23,42,0.06) !important; }
+.vorax-light .bg-white\/5 { background-color: rgba(15,23,42,0.05) !important; }
+.vorax-light .bg-white\/10 { background-color: rgba(15,23,42,0.08) !important; }
+.vorax-light .border-white\/5 { border-color: rgba(15,23,42,0.08) !important; }
+.vorax-light .border-white\/10 { border-color: rgba(15,23,42,0.10) !important; }
+.vorax-light .border-white\/15 { border-color: rgba(15,23,42,0.15) !important; }
+.vorax-light .border-white\/20 { border-color: rgba(15,23,42,0.22) !important; }
+.vorax-light .from-white { --tw-gradient-from: #0f172a !important; }
+.vorax-light .to-white\/60 { --tw-gradient-to: rgba(15,23,42,0.6) !important; }
+
+/* 3D tilt + glow for plan cards */
+.plan-card {
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
+}
+.plan-card:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-6deg) translateY(-6px);
+  box-shadow: 0 30px 80px -20px rgba(236, 72, 153, 0.45),
+              0 0 0 1px rgba(236, 72, 153, 0.25),
+              0 0 60px -10px rgba(124, 58, 237, 0.4);
+}
+.plan-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.6), rgba(236,72,153,0.6), rgba(249,115,22,0.6));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.plan-card:hover::before { opacity: 1; }
+

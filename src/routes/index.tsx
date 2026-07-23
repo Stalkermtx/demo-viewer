@@ -60,6 +60,12 @@ function Heart({
 
 function PrimoTechLanding() {
   const [muted, setMuted] = useState(true);
+  const [light, setLight] = useState(false);
+  const [spend, setSpend] = useState(200);
+  const savings = Math.round(spend * 0.7);
+  const yearly = savings * 12;
+
+
 
   const plans = [
     {
@@ -128,8 +134,9 @@ function PrimoTechLanding() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#050505] text-white">
+    <div className={`relative min-h-screen overflow-x-hidden ${light ? "vorax-light" : "bg-[#050505] text-white"}`}>
       <MoneyRain />
+
       {/* Background */}
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <svg width="0" height="0" className="absolute">
@@ -319,7 +326,77 @@ function PrimoTechLanding() {
         </div>
       </section>
 
+      {/* Calculadora */}
+      <section id="calculadora" className="relative z-10 mx-auto max-w-5xl px-6 py-20">
+        <div className="mb-10 text-center">
+          <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Calculadora</div>
+          <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+            Quanto você economizaria?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-white/60">
+            Arraste o valor que você gasta hoje no Lovable e veja o quanto sobra no bolso com a Vorax.
+          </p>
+        </div>
+
+        <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur sm:p-10">
+          <div className="flex items-baseline justify-between">
+            <label htmlFor="spend" className="text-sm font-semibold text-white/70">
+              Gasto mensal atual
+            </label>
+            <div className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
+              R$ {spend}
+            </div>
+          </div>
+          <input
+            id="spend"
+            type="range"
+            min={20}
+            max={2000}
+            step={10}
+            value={spend}
+            onChange={(e) => setSpend(Number(e.target.value))}
+            className="mt-4 w-full accent-pink-500"
+            aria-label="Gasto mensal no Lovable em reais"
+          />
+          <div className="mt-2 flex justify-between text-xs text-white/50">
+            <span>R$ 20</span>
+            <span>R$ 2.000</span>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-6 text-center">
+              <div className="text-xs font-semibold uppercase tracking-widest text-white/50">
+                Economia mensal
+              </div>
+              <div className="mt-2 bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+                R$ {savings}
+              </div>
+              <div className="mt-1 text-xs text-white/50">com desconto de 70%</div>
+            </div>
+            <div className="rounded-2xl border border-transparent bg-gradient-to-br from-violet-600/25 via-pink-500/15 to-orange-500/20 p-6 text-center shadow-[0_10px_40px_-15px_rgba(236,72,153,0.6)]">
+              <div className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                Economia anual
+              </div>
+              <div className="mt-2 bg-gradient-to-r from-violet-300 via-pink-300 to-orange-300 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+                R$ {yearly.toLocaleString("pt-BR")}
+              </div>
+              <div className="mt-1 text-xs text-white/70">no seu bolso todo ano 💸</div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <a
+              href="#planos"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
+            >
+              Quero economizar isso →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
+
       <section id="planos" className="relative z-10 mx-auto max-w-7xl px-6 py-20">
         <div className="mb-14 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Planos</div>
@@ -332,11 +409,12 @@ function PrimoTechLanding() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl border p-8 backdrop-blur transition ${
+              className={`plan-card relative rounded-3xl border p-8 backdrop-blur ${
                 p.highlight
                   ? "border-transparent bg-gradient-to-b from-violet-600/20 via-pink-500/10 to-orange-500/10 shadow-[0_20px_60px_-20px_rgba(236,72,153,0.5)]"
                   : "border-white/10 bg-white/[0.03] hover:border-white/20"
               }`}
+
             >
               {p.highlight && (
                 <div className="absolute inset-x-0 -top-3 mx-auto w-fit rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-4 py-1 text-xs font-bold uppercase tracking-wider">
@@ -373,7 +451,70 @@ function PrimoTechLanding() {
         </div>
       </section>
 
+      {/* Comparativo */}
+      <section id="comparativo" className="relative z-10 mx-auto max-w-6xl px-6 py-20">
+        <div className="mb-10 text-center">
+          <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Comparativo</div>
+          <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+            Compare os planos lado a lado
+          </h2>
+        </div>
+
+        <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur">
+          <table className="w-full min-w-[640px] text-left text-sm">
+            <thead>
+              <tr className="border-b border-white/10 text-xs uppercase tracking-widest text-white/50">
+                <th className="p-5 font-semibold">Recurso</th>
+                <th className="p-5 font-semibold text-center">Starter</th>
+                <th className="p-5 font-semibold text-center">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+                      Pro Elite
+                    </span>
+                    <span className="rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                      TOP
+                    </span>
+                  </span>
+                </th>
+                <th className="p-5 font-semibold text-center">Studio</th>
+              </tr>
+            </thead>
+            <tbody className="text-white/80">
+              {[
+                { label: "Economia em créditos", values: ["Até 40%", "Até 70%", "Até 70%"] },
+                { label: "Workspaces Lovable", values: ["1", "3", "Ilimitados"] },
+                { label: "Suporte", values: ["Comunidade", "VIP prioritário", "24/7 dedicado"] },
+                { label: "Templates exclusivos", values: [false, true, true] },
+                { label: "SLA garantido", values: [false, false, true] },
+                { label: "White-label", values: [false, false, "Opcional"] },
+                { label: "Gerente de conta", values: [false, false, true] },
+                { label: "Teste grátis", values: ["3 dias", "3 dias", "3 dias"] },
+              ].map((row, i) => (
+                <tr key={row.label} className={i % 2 ? "bg-white/[0.02]" : ""}>
+                  <td className="p-4 font-medium text-white/90">{row.label}</td>
+                  {row.values.map((v, idx) => (
+                    <td
+                      key={idx}
+                      className={`p-4 text-center ${idx === 1 ? "bg-gradient-to-b from-pink-500/5 to-violet-500/5" : ""}`}
+                    >
+                      {v === true ? (
+                        <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-gradient-to-br from-violet-500 to-pink-500 text-xs text-white">✓</span>
+                      ) : v === false ? (
+                        <span className="text-white/30">—</span>
+                      ) : (
+                        v
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* FAQ */}
+
       <section id="faq" className="relative z-10 mx-auto max-w-3xl px-6 py-20">
         <div className="mb-10 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">Dúvidas</div>
@@ -443,6 +584,17 @@ function PrimoTechLanding() {
       >
         <span className="text-sm">{muted ? "🔇" : "🔊"}</span>
       </button>
+
+      {/* Theme toggle */}
+      <button
+        onClick={() => setLight((l) => !l)}
+        className="fixed bottom-6 left-20 z-50 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/60 backdrop-blur transition hover:scale-110 hover:bg-white/10"
+        title={light ? "Modo escuro" : "Modo claro"}
+        aria-label="Alternar tema"
+      >
+        <span className="text-sm">{light ? "🌙" : "☀️"}</span>
+      </button>
+
     </div>
   );
 }
