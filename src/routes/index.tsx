@@ -597,11 +597,14 @@ function PrimoTechLanding() {
             Ative agora e comece a testar em menos de 2 minutos. Sem cartão. Sem enrolação.
           </p>
           <a
-            href="#planos"
+            href={wa("Olá! Estou pronto para ativar meu teste grátis da Vorax Lovable. Bora começar? 💸")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-flex rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-10 py-4 font-semibold shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-105"
           >
             Ativar teste grátis →
           </a>
+
         </div>
       </section>
 
