@@ -163,6 +163,7 @@ function PrimoTechLanding() {
         </a>
         <nav className="hidden gap-8 text-sm text-white/70 md:flex">
           <a href="#recursos" className="hover:text-white transition">Recursos</a>
+          <a href="#como-funciona" className="hover:text-white transition">Como funciona</a>
           <a href="#planos" className="hover:text-white transition">Planos</a>
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
