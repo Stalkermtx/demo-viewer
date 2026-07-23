@@ -584,6 +584,17 @@ function PrimoTechLanding() {
       >
         <span className="text-sm">{muted ? "🔇" : "🔊"}</span>
       </button>
+
+      {/* Theme toggle */}
+      <button
+        onClick={() => setLight((l) => !l)}
+        className="fixed bottom-6 left-20 z-50 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/60 backdrop-blur transition hover:scale-110 hover:bg-white/10"
+        title={light ? "Modo escuro" : "Modo claro"}
+        aria-label="Alternar tema"
+      >
+        <span className="text-sm">{light ? "🌙" : "☀️"}</span>
+      </button>
+
     </div>
   );
 }
