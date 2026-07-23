@@ -7,20 +7,20 @@ const OG_IMAGE_URL = `https://demo-viewer.lovable.app${ogImage}`;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Primo Tech — Domine o Lovable com Economia de Elite" },
+      { title: "Vorax Lovable — Domine o Lovable com Economia de Elite" },
       {
         name: "description",
         content:
-          "A Extensão Primo Tech turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato.",
+          "A Extensão Vorax Lovable turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato.",
       },
-      { property: "og:title", content: "Primo Tech — Domine o Lovable com Economia de Elite" },
+      { property: "og:title", content: "Vorax Lovable — Domine o Lovable com Economia de Elite" },
       {
         property: "og:description",
         content:
-          "A Extensão Primo Tech turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato.",
+          "A Extensão Vorax Lovable turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Primo Tech" },
+      { property: "og:site_name", content: "Vorax Lovable" },
       { property: "og:image", content: OG_IMAGE_URL },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
@@ -166,7 +166,7 @@ function PrimoTechLanding() {
           <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-600 via-pink-500 to-orange-500 font-black">
             P
           </div>
-          <span className="text-lg font-bold tracking-tight">Primo Tech</span>
+          <span className="text-lg font-bold tracking-tight">Vorax Lovable</span>
         </a>
         <nav className="hidden gap-8 text-sm text-white/70 md:flex">
           <a href="#recursos" className="hover:text-white transition">Recursos</a>
@@ -195,7 +195,7 @@ function PrimoTechLanding() {
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-white/70 sm:text-xl">
-          A Extensão Primo Tech turbina seu workspace Lovable com economia real de até{" "}
+          A Extensão Vorax Lovable turbina seu workspace Lovable com economia real de até{" "}
           <span className="font-semibold text-white">70%</span>. Ative planos premium, suporte VIP e teste grátis imediato.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -275,7 +275,7 @@ function PrimoTechLanding() {
             {
               step: "01",
               title: "Instale a extensão",
-              desc: "Baixe a Primo Tech na Chrome Web Store em um clique. Compatível com todos os navegadores baseados em Chromium.",
+              desc: "Baixe a Vorax Lovable na Chrome Web Store em um clique. Compatível com todos os navegadores baseados em Chromium.",
               icon: "⬇️",
             },
             {
@@ -287,7 +287,7 @@ function PrimoTechLanding() {
             {
               step: "03",
               title: "Economize automaticamente",
-              desc: "Pronto! A partir daqui todos os créditos passam pela otimização inteligente da Primo Tech. Você economiza sem fazer nada.",
+              desc: "Pronto! A partir daqui todos os créditos passam pela otimização inteligente da Vorax Lovable. Você economiza sem fazer nada.",
               icon: "💰",
             },
           ].map((s) => (
@@ -429,7 +429,7 @@ function PrimoTechLanding() {
       </section>
 
       <footer className="relative z-10 border-t border-white/5 py-10 text-center text-sm text-white/40">
-        © {new Date().getFullYear()} Primo Tech. Todos os direitos reservados.
+        © {new Date().getFullYear()} Vorax Lovable. Todos os direitos reservados.
       </footer>
 
       {/* Mute button */}
