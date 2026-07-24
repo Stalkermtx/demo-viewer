@@ -62,11 +62,22 @@ const WHATSAPP_NUMBER = "5565992203318";
 const wa = (msg: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
+const SPEND_MIN = 20;
+const SPEND_MAX = 2000;
+const clampSpend = (n: number) => {
+  if (!Number.isFinite(n)) return SPEND_MIN;
+  return Math.min(SPEND_MAX, Math.max(SPEND_MIN, Math.round(n)));
+};
+// Locale-stable currency formatting (avoids SSR/CSR hydration mismatch on Workers)
+const formatBRL = (n: number) =>
+  n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 function PrimoTechLanding() {
   const [muted, setMuted] = useState(true);
   const [light, setLight] = useState(false);
   const [spend, setSpend] = useState(200);
-  const savings = Math.round(spend * 0.7);
+  const safeSpend = clampSpend(spend);
+  const savings = Math.round(safeSpend * 0.7);
   const yearly = savings * 12;
 
 
@@ -367,17 +378,17 @@ function PrimoTechLanding() {
               Gasto mensal atual
             </label>
             <div className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
-              R$ {spend}
+              R$ {formatBRL(safeSpend)}
             </div>
           </div>
           <input
             id="spend"
             type="range"
-            min={20}
-            max={2000}
+            min={SPEND_MIN}
+            max={SPEND_MAX}
             step={10}
-            value={spend}
-            onChange={(e) => setSpend(Number(e.target.value))}
+            value={safeSpend}
+            onChange={(e) => setSpend(clampSpend(Number(e.target.value)))}
             className="mt-4 w-full accent-pink-500"
             aria-label="Gasto mensal no Lovable em reais"
           />
@@ -392,7 +403,7 @@ function PrimoTechLanding() {
                 Economia mensal
               </div>
               <div className="mt-2 bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-                R$ {savings}
+                R$ {formatBRL(savings)}
               </div>
               <div className="mt-1 text-xs text-white/50">com desconto de 70%</div>
             </div>
@@ -401,7 +412,7 @@ function PrimoTechLanding() {
                 Economia anual
               </div>
               <div className="mt-2 bg-gradient-to-r from-violet-300 via-pink-300 to-orange-300 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-                R$ {yearly.toLocaleString("pt-BR")}
+                R$ {formatBRL(yearly)}
               </div>
               <div className="mt-1 text-xs text-white/70">no seu bolso todo ano 💸</div>
             </div>
@@ -410,8 +421,8 @@ function PrimoTechLanding() {
           <div className="mt-6 text-center">
             <a
               href={wa(
-                `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${spend}/mês, economia de R$ ${savings}/mês (R$ ${yearly.toLocaleString(
-                  "pt-BR",
+                `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${formatBRL(safeSpend)}/mês, economia de R$ ${formatBRL(savings)}/mês (R$ ${formatBRL(
+                  yearly,
                 )}/ano). Quero começar a economizar!`,
               )}
               target="_blank"
@@ -609,7 +620,7 @@ function PrimoTechLanding() {
       </section>
 
       <footer className="relative z-10 border-t border-white/5 py-10 text-center text-sm text-white/40">
-        © {new Date().getFullYear()} Vorax Lovable. Todos os direitos reservados.
+        © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Vorax Lovable. Todos os direitos reservados.
       </footer>
 
       {/* Mute button */}
