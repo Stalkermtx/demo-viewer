@@ -378,17 +378,17 @@ function PrimoTechLanding() {
               Gasto mensal atual
             </label>
             <div className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
-              R$ {spend}
+              R$ {formatBRL(safeSpend)}
             </div>
           </div>
           <input
             id="spend"
             type="range"
-            min={20}
-            max={2000}
+            min={SPEND_MIN}
+            max={SPEND_MAX}
             step={10}
-            value={spend}
-            onChange={(e) => setSpend(Number(e.target.value))}
+            value={safeSpend}
+            onChange={(e) => setSpend(clampSpend(Number(e.target.value)))}
             className="mt-4 w-full accent-pink-500"
             aria-label="Gasto mensal no Lovable em reais"
           />
