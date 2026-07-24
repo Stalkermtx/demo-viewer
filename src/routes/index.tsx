@@ -403,7 +403,7 @@ function PrimoTechLanding() {
                 Economia mensal
               </div>
               <div className="mt-2 bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-                R$ {savings}
+                R$ {formatBRL(savings)}
               </div>
               <div className="mt-1 text-xs text-white/50">com desconto de 70%</div>
             </div>
@@ -412,7 +412,7 @@ function PrimoTechLanding() {
                 Economia anual
               </div>
               <div className="mt-2 bg-gradient-to-r from-violet-300 via-pink-300 to-orange-300 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-                R$ {yearly.toLocaleString("pt-BR")}
+                R$ {formatBRL(yearly)}
               </div>
               <div className="mt-1 text-xs text-white/70">no seu bolso todo ano 💸</div>
             </div>
@@ -421,8 +421,8 @@ function PrimoTechLanding() {
           <div className="mt-6 text-center">
             <a
               href={wa(
-                `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${spend}/mês, economia de R$ ${savings}/mês (R$ ${yearly.toLocaleString(
-                  "pt-BR",
+                `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${formatBRL(safeSpend)}/mês, economia de R$ ${formatBRL(savings)}/mês (R$ ${formatBRL(
+                  yearly,
                 )}/ano). Quero começar a economizar!`,
               )}
               target="_blank"
@@ -620,7 +620,7 @@ function PrimoTechLanding() {
       </section>
 
       <footer className="relative z-10 border-t border-white/5 py-10 text-center text-sm text-white/40">
-        © {new Date().getFullYear()} Vorax Lovable. Todos os direitos reservados.
+        © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Vorax Lovable. Todos os direitos reservados.
       </footer>
 
       {/* Mute button */}
