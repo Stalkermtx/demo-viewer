@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";
 import ogImage from "@/assets/og-primo-tech.jpg";
+import extensionAsset from "@/assets/vorax-extension.zip.asset.json";
 
 const OG_IMAGE_URL = `https://demo-viewer.lovable.app${ogImage}`;
 
@@ -79,6 +80,34 @@ function PrimoTechLanding() {
   const safeSpend = clampSpend(spend);
   const savings = Math.round(safeSpend * 0.7);
   const yearly = savings * 12;
+
+  const downloadExtension = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(extensionAsset.url, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`Download indisponível: ${response.status}`);
+      }
+
+      const blob = await response.blob();
+      if (blob.size === 0) {
+        throw new Error("Arquivo de extensão vazio");
+      }
+
+      const objectUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = objectUrl;
+      link.download = "vorax-extension.zip";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+    } catch (error) {
+      console.error("Falha ao baixar a extensão Vorax Lovable", error);
+      window.open(extensionAsset.url, "_blank", "noopener,noreferrer");
+    }
+  };
 
 
 
@@ -205,6 +234,7 @@ function PrimoTechLanding() {
         <nav className="hidden gap-8 text-sm text-white/70 md:flex">
           <a href="#recursos" className="hover:text-white transition">Recursos</a>
           <a href="#como-funciona" className="hover:text-white transition">Como funciona</a>
+          <a href={extensionAsset.url} onClick={downloadExtension} download="vorax-extension.zip" className="hover:text-white transition">Download</a>
           <a href="#planos" className="hover:text-white transition">Planos</a>
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
@@ -245,6 +275,15 @@ function PrimoTechLanding() {
 
             <span className="relative z-10">Começar teste grátis →</span>
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+          </a>
+          <a
+            href={extensionAsset.url}
+            onClick={downloadExtension}
+            download="vorax-extension.zip"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/10 px-8 py-3.5 text-base font-semibold text-white/90 backdrop-blur transition hover:bg-white/20 hover:scale-[1.03]"
+          >
+            <span className="relative z-10">⬇️ Baixar extensão</span>
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
           </a>
           <a
             href="#recursos"
