@@ -62,11 +62,22 @@ const WHATSAPP_NUMBER = "5565992203318";
 const wa = (msg: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
+const SPEND_MIN = 20;
+const SPEND_MAX = 2000;
+const clampSpend = (n: number) => {
+  if (!Number.isFinite(n)) return SPEND_MIN;
+  return Math.min(SPEND_MAX, Math.max(SPEND_MIN, Math.round(n)));
+};
+// Locale-stable currency formatting (avoids SSR/CSR hydration mismatch on Workers)
+const formatBRL = (n: number) =>
+  n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 function PrimoTechLanding() {
   const [muted, setMuted] = useState(true);
   const [light, setLight] = useState(false);
   const [spend, setSpend] = useState(200);
-  const savings = Math.round(spend * 0.7);
+  const safeSpend = clampSpend(spend);
+  const savings = Math.round(safeSpend * 0.7);
   const yearly = savings * 12;
 
 
