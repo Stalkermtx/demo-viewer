@@ -76,6 +76,7 @@ const formatBRL = (n: number) =>
 function PrimoTechLanding() {
   const [muted, setMuted] = useState(true);
   const [light, setLight] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [spend, setSpend] = useState(200);
   const safeSpend = clampSpend(spend);
   const savings = Math.round(safeSpend * 0.7);
