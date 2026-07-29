@@ -724,30 +724,58 @@ function PrimoTechLanding() {
 
         </div>
       </section>
+      </main>
 
-      <footer className="relative z-10 border-t border-white/5 py-10 text-center text-sm text-white/40">
+      <footer className="relative z-10 border-t border-white/5 pb-28 pt-10 text-center text-sm text-white/40 sm:pb-10">
         © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Vorax Lovable. Todos os direitos reservados.
       </footer>
 
+      {/* CTA fixo no mobile */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/80 px-4 pb-[env(safe-area-inset-bottom)] pt-3 backdrop-blur-xl sm:hidden">
+        <div className="flex items-center gap-3 pb-3">
+          <a
+            href={wa("Olá! Quero ativar meu teste grátis de 3 dias da Vorax Lovable. 💸")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-12 flex-1 items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(236,72,153,0.7)]"
+          >
+            Testar grátis
+          </a>
+          <a
+            href={extensionAsset.url}
+            download="vorax-extension.zip"
+            onClick={downloadExtension}
+            className="flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 text-sm font-semibold text-white"
+          >
+            Baixar
+          </a>
+        </div>
+      </div>
+
       {/* Mute button */}
       <button
+        type="button"
         onClick={() => setMuted((m) => !m)}
-        className="fixed bottom-6 left-6 z-50 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/60 backdrop-blur transition hover:scale-110 hover:bg-white/10"
+        aria-pressed={!muted}
+        className="fixed bottom-24 left-4 z-50 grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-black/60 backdrop-blur transition hover:scale-110 hover:bg-white/10 sm:bottom-6 sm:left-6"
         title={muted ? "Ativar sons" : "Desativar sons"}
         aria-label="Alternar sons"
       >
-        <span className="text-sm">{muted ? "🔇" : "🔊"}</span>
+        <span aria-hidden="true" className="text-sm">{muted ? "🔇" : "🔊"}</span>
       </button>
 
       {/* Theme toggle */}
       <button
+        type="button"
         onClick={() => setLight((l) => !l)}
-        className="fixed bottom-6 left-20 z-50 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/60 backdrop-blur transition hover:scale-110 hover:bg-white/10"
+        aria-pressed={light}
+        className="fixed bottom-24 left-[4.5rem] z-50 grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-black/60 backdrop-blur transition hover:scale-110 hover:bg-white/10 sm:bottom-6 sm:left-20"
         title={light ? "Modo escuro" : "Modo claro"}
         aria-label="Alternar tema"
       >
-        <span className="text-sm">{light ? "🌙" : "☀️"}</span>
+        <span aria-hidden="true" className="text-sm">{light ? "🌙" : "☀️"}</span>
       </button>
+
 
     </div>
   );
