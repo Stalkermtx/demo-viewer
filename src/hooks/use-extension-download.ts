@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import extensionAsset from "@/assets/vorax-extension.zip.asset.json";
-import { EXTENSION_FILENAME } from "@/lib/landing-data";
+import { EXTENSION_FILENAME } from "@/lib/landing";
 
 export const EXTENSION_URL = extensionAsset.url;
 

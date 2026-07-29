@@ -1,12 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";
-import { Background } from "@/components/landing/Background";
-import { SiteHeader } from "@/components/landing/SiteHeader";
-import { FeaturesSection, Hero, HowItWorks } from "@/components/landing/HeroSections";
-import { Calculator } from "@/components/landing/Calculator";
-import { ComparisonTable, Faq, FinalCta, Pricing } from "@/components/landing/Sections";
-import { FloatingControls, MobileCtaBar } from "@/components/landing/FloatingBars";
+import {
+  Background,
+  FloatingControls,
+  MobileCtaBar,
+  SiteFooter,
+  SiteHeader,
+} from "@/components/landing/layout";
+import {
+  Calculator,
+  ComparisonTable,
+  Faq,
+  FeaturesSection,
+  FinalCta,
+  Hero,
+  HowItWorks,
+  Pricing,
+} from "@/components/landing/sections";
 import { useExtensionDownload } from "@/hooks/use-extension-download";
 import ogImage from "@/assets/og-primo-tech.jpg";
 
@@ -69,10 +80,7 @@ function VoraxLandingPage() {
         <FinalCta />
       </main>
 
-      <footer className="relative z-10 border-t border-white/5 pb-28 pt-10 text-center text-sm text-white/40 sm:pb-10">
-        © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Vorax Lovable. Todos os
-        direitos reservados.
-      </footer>
+      <SiteFooter />
 
       <MobileCtaBar onDownload={downloadExtension} />
       <FloatingControls
