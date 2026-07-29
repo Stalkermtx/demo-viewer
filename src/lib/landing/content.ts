@@ -1,49 +1,12 @@
-export const WHATSAPP_NUMBER = "5565992203318";
+import type { ComparisonRow, FaqItem, Feature, Plan, Stat, Step } from "./types";
 
-/** Monta o link de WhatsApp com mensagem pré-preenchida. */
-export const wa = (msg: string) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-
-export const SPEND_MIN = 20;
-export const SPEND_MAX = 2000;
-export const SAVINGS_RATE = 0.7;
-
-export const clampSpend = (n: number) => {
-  if (!Number.isFinite(n)) return SPEND_MIN;
-  return Math.min(SPEND_MAX, Math.max(SPEND_MIN, Math.round(n)));
-};
-
-/** Formatação estável entre SSR e cliente (evita hydration mismatch). */
-export const formatBRL = (n: number) =>
-  n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-export const EXTENSION_FILENAME = "vorax-extension.zip";
-
-export type NavLink = { href: string; label: string };
-
-export const NAV_LINKS: NavLink[] = [
-  { href: "#recursos", label: "Recursos" },
-  { href: "#como-funciona", label: "Como funciona" },
-  { href: "#calculadora", label: "Calculadora" },
-  { href: "#planos", label: "Planos" },
-  { href: "#comparativo", label: "Comparativo" },
-  { href: "#faq", label: "FAQ" },
-];
-
-export const DESKTOP_NAV_LINKS: NavLink[] = [
-  { href: "#recursos", label: "Recursos" },
-  { href: "#como-funciona", label: "Como funciona" },
-  { href: "#planos", label: "Planos" },
-  { href: "#faq", label: "FAQ" },
-];
-
-export const STATS = [
+export const STATS: readonly Stat[] = [
   { k: "70%", v: "Economia média" },
   { k: "12k+", v: "Devs ativos" },
   { k: "4.9★", v: "Avaliação" },
-] as const;
+];
 
-export const FEATURES = [
+export const FEATURES: readonly Feature[] = [
   {
     title: "Economia de até 70%",
     desc: "Otimização inteligente do consumo de créditos no Lovable, sem sacrificar qualidade.",
@@ -64,9 +27,9 @@ export const FEATURES = [
     desc: "Novas features toda semana acompanhando as atualizações do Lovable.",
     icon: "🚀",
   },
-] as const;
+];
 
-export const STEPS = [
+export const STEPS: readonly Step[] = [
   {
     step: "01",
     title: "Instale a extensão",
@@ -85,19 +48,9 @@ export const STEPS = [
     desc: "Pronto! A partir daqui todos os créditos passam pela otimização inteligente da Vorax Lovable. Você economiza sem fazer nada.",
     icon: "💰",
   },
-] as const;
+];
 
-export type Plan = {
-  name: string;
-  price: string;
-  period: string;
-  badge: string;
-  features: string[];
-  highlight: boolean;
-  waMessage: string;
-};
-
-export const PLANS: Plan[] = [
+export const PLANS: readonly Plan[] = [
   {
     name: "Starter",
     price: "R$ 39",
@@ -146,9 +99,9 @@ export const PLANS: Plan[] = [
   },
 ];
 
-export type ComparisonRow = { label: string; values: (string | boolean)[] };
+export const COMPARISON_COLUMNS = ["Starter", "Pro Elite", "Studio"] as const;
 
-export const COMPARISON_ROWS: ComparisonRow[] = [
+export const COMPARISON_ROWS: readonly ComparisonRow[] = [
   { label: "Economia em créditos", values: ["Até 40%", "Até 70%", "Até 70%"] },
   { label: "Workspaces Lovable", values: ["1", "3", "Ilimitados"] },
   { label: "Suporte", values: ["Comunidade", "VIP prioritário", "24/7 dedicado"] },
@@ -159,7 +112,7 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
   { label: "Teste grátis", values: ["3 dias", "3 dias", "3 dias"] },
 ];
 
-export const FAQ_ITEMS = [
+export const FAQ_ITEMS: readonly FaqItem[] = [
   {
     q: "Como funciona a economia de 70%?",
     a: "A extensão otimiza automaticamente o uso de créditos no seu workspace Lovable, reaproveitando contexto e evitando chamadas redundantes.",
@@ -176,4 +129,4 @@ export const FAQ_ITEMS = [
     q: "Preciso reinstalar a cada atualização?",
     a: "Não. A extensão se atualiza automaticamente em background.",
   },
-] as const;
+];

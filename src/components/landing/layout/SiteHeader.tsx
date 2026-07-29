@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
-import { DESKTOP_NAV_LINKS, EXTENSION_FILENAME, NAV_LINKS } from "@/lib/landing-data";
-import { EXTENSION_URL, type ExtensionDownloadHandler } from "@/hooks/use-extension-download";
-import { WhatsAppCta } from "./ui";
+import { DESKTOP_NAV_LINKS, NAV_LINKS, WA_MESSAGES } from "@/lib/landing";
+import type { ExtensionDownloadHandler } from "@/hooks/use-extension-download";
+import { DownloadLink, WhatsAppCta } from "../ui";
 
 export const SiteHeader = memo(function SiteHeader({
   onDownload,
@@ -27,18 +27,13 @@ export const SiteHeader = memo(function SiteHeader({
                 {l.label}
               </a>
             ))}
-            <a
-              href={EXTENSION_URL}
-              onClick={onDownload}
-              download={EXTENSION_FILENAME}
-              className="transition hover:text-white"
-            >
+            <DownloadLink onDownload={onDownload} className="transition hover:text-white">
               Download
-            </a>
+            </DownloadLink>
           </nav>
 
           <WhatsAppCta
-            message="Olá! Quero começar o teste grátis de 3 dias da Vorax Lovable. Podem me enviar as instruções?"
+            message={WA_MESSAGES.headerTrial}
             variant="soft"
             className="hidden min-h-11 px-5 text-sm sm:inline-flex"
           >
@@ -79,17 +74,13 @@ export const SiteHeader = memo(function SiteHeader({
               </li>
             ))}
             <li>
-              <a
-                href={EXTENSION_URL}
-                download={EXTENSION_FILENAME}
-                onClick={(e) => {
-                  setMenuOpen(false);
-                  void onDownload(e);
-                }}
+              <DownloadLink
+                onDownload={onDownload}
+                onNavigate={() => setMenuOpen(false)}
                 className="flex min-h-11 items-center rounded-lg px-2 transition hover:bg-white/10 hover:text-white"
               >
                 Baixar extensão
-              </a>
+              </DownloadLink>
             </li>
           </ul>
         </nav>

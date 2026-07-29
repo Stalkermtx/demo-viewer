@@ -1,15 +1,18 @@
 import { memo, useMemo, useState } from "react";
-import { SAVINGS_RATE, SPEND_MAX, SPEND_MIN, clampSpend, formatBRL, wa } from "@/lib/landing-data";
-import { GradientValue, SectionHeading } from "./ui";
+import {
+  SPEND_MAX,
+  SPEND_MIN,
+  WA_MESSAGES,
+  calcSavings,
+  clampSpend,
+  formatBRL,
+  wa,
+} from "@/lib/landing";
+import { GradientValue, SectionHeading } from "../ui";
 
 export const Calculator = memo(function Calculator() {
   const [spend, setSpend] = useState(200);
-
-  const { safeSpend, savings, yearly } = useMemo(() => {
-    const s = clampSpend(spend);
-    const monthly = Math.round(s * SAVINGS_RATE);
-    return { safeSpend: s, savings: monthly, yearly: monthly * 12 };
-  }, [spend]);
+  const { safeSpend, monthly, yearly } = useMemo(() => calcSavings(spend), [spend]);
 
   return (
     <section id="calculadora" className="relative z-10 mx-auto max-w-5xl px-6 py-20">
@@ -50,7 +53,7 @@ export const Calculator = memo(function Calculator() {
               Economia mensal
             </div>
             <GradientValue className="mt-2 block text-4xl sm:text-5xl">
-              R$ {formatBRL(savings)}
+              R$ {formatBRL(monthly)}
             </GradientValue>
             <div className="mt-1 text-xs text-white/50">com desconto de 70%</div>
           </div>
@@ -67,9 +70,7 @@ export const Calculator = memo(function Calculator() {
 
         <div className="mt-6 text-center">
           <a
-            href={wa(
-              `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${formatBRL(safeSpend)}/mês, economia de R$ ${formatBRL(savings)}/mês (R$ ${formatBRL(yearly)}/ano). Quero começar a economizar!`,
-            )}
+            href={wa(WA_MESSAGES.calculator(safeSpend, monthly, yearly))}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
