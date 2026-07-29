@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { COMPARISON_ROWS } from "@/lib/landing";
+import { SectionHeading } from "../ui";
 
 function CellValue({ value }: { value: string | boolean }) {
   if (value === true) {
@@ -16,7 +17,7 @@ function CellValue({ value }: { value: string | boolean }) {
 export const ComparisonTable = memo(function ComparisonTable() {
   return (
     <section id="comparativo" className="relative z-10 mx-auto max-w-6xl px-6 py-20">
-      <SectionHeadingLazy />
+      <SectionHeading eyebrow="Comparativo" title="Compare os planos lado a lado" className="mb-10" />
 
       <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur">
         <table className="w-full min-w-[640px] text-left text-sm">
@@ -62,8 +63,3 @@ export const ComparisonTable = memo(function ComparisonTable() {
     </section>
   );
 });
-
-function SectionHeadingLazy() {
-  const { SectionHeading } = require("../ui") as typeof import("../ui");
-  return <SectionHeading eyebrow="Comparativo" title="Compare os planos lado a lado" className="mb-10" />;
-}
