@@ -224,35 +224,101 @@ function PrimoTechLanding() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]/80" />
       </div>
 
-      {/* Nav */}
-      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-        <a href="/" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-600 via-pink-500 to-orange-500 font-black">
-            P
-          </div>
-          <span className="text-lg font-bold tracking-tight">Vorax Lovable</span>
-        </a>
-        <nav className="hidden gap-8 text-sm text-white/70 md:flex">
-          <a href="#recursos" className="hover:text-white transition">Recursos</a>
-          <a href="#como-funciona" className="hover:text-white transition">Como funciona</a>
-          <a href={extensionAsset.url} onClick={downloadExtension} download="vorax-extension.zip" className="hover:text-white transition">Download</a>
-          <a href="#planos" className="hover:text-white transition">Planos</a>
-          <a href="#faq" className="hover:text-white transition">FAQ</a>
-        </nav>
-        <a
-          href={wa("Olá! Quero começar o teste grátis de 3 dias da Vorax Lovable. Podem me enviar as instruções?")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur transition hover:bg-white/20"
-        >
-          Testar grátis
-        </a>
+      {/* Skip link */}
+      <a
+        href="#conteudo"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-black"
+      >
+        Pular para o conteúdo
+      </a>
 
+      {/* Nav */}
+      <header className="sticky top-0 z-40 border-b border-white/5 bg-black/40 backdrop-blur-xl supports-[backdrop-filter]:bg-black/30">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6 sm:py-4">
+          <a href="/" className="flex min-w-0 items-center gap-2" aria-label="Vorax Lovable — início">
+            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-violet-600 via-pink-500 to-orange-500 font-black">
+              V
+            </div>
+            <span className="truncate text-base font-bold tracking-tight sm:text-lg">Vorax Lovable</span>
+          </a>
+
+          <div className="flex items-center gap-2">
+            <nav aria-label="Principal" className="hidden gap-7 text-sm text-white/70 lg:flex">
+              <a href="#recursos" className="transition hover:text-white">Recursos</a>
+              <a href="#como-funciona" className="transition hover:text-white">Como funciona</a>
+              <a href={extensionAsset.url} onClick={downloadExtension} download="vorax-extension.zip" className="transition hover:text-white">Download</a>
+              <a href="#planos" className="transition hover:text-white">Planos</a>
+              <a href="#faq" className="transition hover:text-white">FAQ</a>
+            </nav>
+            <a
+              href={wa("Olá! Quero começar o teste grátis de 3 dias da Vorax Lovable. Podem me enviar as instruções?")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden min-h-11 items-center rounded-full bg-white/10 px-5 text-sm font-semibold backdrop-blur transition hover:bg-white/20 sm:inline-flex"
+            >
+              Testar grátis
+            </a>
+            <button
+              type="button"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-expanded={menuOpen}
+              aria-controls="menu-mobile"
+              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 transition hover:bg-white/10 lg:hidden"
+            >
+              <span aria-hidden="true" className="text-lg">{menuOpen ? "✕" : "☰"}</span>
+            </button>
+          </div>
+        </div>
+
+        {menuOpen && (
+          <nav
+            id="menu-mobile"
+            aria-label="Menu mobile"
+            className="border-t border-white/5 bg-black/70 px-4 py-3 backdrop-blur-xl lg:hidden"
+          >
+            <ul className="flex flex-col text-sm text-white/80">
+              {[
+                { href: "#recursos", label: "Recursos" },
+                { href: "#como-funciona", label: "Como funciona" },
+                { href: "#calculadora", label: "Calculadora" },
+                { href: "#planos", label: "Planos" },
+                { href: "#comparativo", label: "Comparativo" },
+                { href: "#faq", label: "FAQ" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex min-h-11 items-center rounded-lg px-2 transition hover:bg-white/10 hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={extensionAsset.url}
+                  download="vorax-extension.zip"
+                  onClick={(e) => {
+                    setMenuOpen(false);
+                    void downloadExtension(e);
+                  }}
+                  className="flex min-h-11 items-center rounded-lg px-2 transition hover:bg-white/10 hover:text-white"
+                >
+                  Baixar extensão
+                </a>
+              </li>
+            </ul>
+          </nav>
+        )}
       </header>
 
+      <main id="conteudo">
       {/* Hero */}
-      <section className="relative z-10 mx-auto max-w-5xl px-6 pt-16 pb-24 text-center sm:pt-24">
+      <section aria-labelledby="hero-title" className="relative z-10 mx-auto max-w-5xl px-5 pt-12 pb-20 text-center sm:px-6 sm:pt-20 sm:pb-24">
         <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
+
           <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
           Nova versão 3.0 disponível
         </div>
