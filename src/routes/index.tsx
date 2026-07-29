@@ -613,11 +613,12 @@ function PrimoTechLanding() {
 
         <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur">
           <table className="w-full min-w-[640px] text-left text-sm">
+            <caption className="sr-only">Comparativo de recursos entre os planos Starter, Pro Elite e Studio</caption>
             <thead>
               <tr className="border-b border-white/10 text-xs uppercase tracking-widest text-white/50">
-                <th className="p-5 font-semibold">Recurso</th>
-                <th className="p-5 font-semibold text-center">Starter</th>
-                <th className="p-5 font-semibold text-center">
+                <th scope="col" className="p-5 font-semibold">Recurso</th>
+                <th scope="col" className="p-5 font-semibold text-center">Starter</th>
+                <th scope="col" className="p-5 font-semibold text-center">
                   <span className="inline-flex items-center gap-2">
                     <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                       Pro Elite
@@ -627,7 +628,7 @@ function PrimoTechLanding() {
                     </span>
                   </span>
                 </th>
-                <th className="p-5 font-semibold text-center">Studio</th>
+                <th scope="col" className="p-5 font-semibold text-center">Studio</th>
               </tr>
             </thead>
             <tbody className="text-white/80">
@@ -642,7 +643,7 @@ function PrimoTechLanding() {
                 { label: "Teste grátis", values: ["3 dias", "3 dias", "3 dias"] },
               ].map((row, i) => (
                 <tr key={row.label} className={i % 2 ? "bg-white/[0.02]" : ""}>
-                  <td className="p-4 font-medium text-white/90">{row.label}</td>
+                  <th scope="row" className="p-4 text-left font-medium text-white/90">{row.label}</th>
                   {row.values.map((v, idx) => (
                     <td
                       key={idx}
