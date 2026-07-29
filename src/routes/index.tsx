@@ -322,7 +322,7 @@ function PrimoTechLanding() {
           <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
           Nova versão 3.0 disponível
         </div>
-        <h1 className="mx-auto max-w-4xl bg-gradient-to-br from-white via-white to-white/60 bg-clip-text text-5xl font-bold leading-[1.05] tracking-tight text-transparent sm:text-7xl">
+        <h1 id="hero-title" className="mx-auto max-w-4xl text-balance bg-gradient-to-br from-white via-white to-white/60 bg-clip-text text-4xl font-bold leading-[1.08] tracking-tight text-transparent sm:text-6xl lg:text-7xl">
           Domine o Lovable com{" "}
           <span className="bg-gradient-to-r from-violet-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
             Economia de Elite
