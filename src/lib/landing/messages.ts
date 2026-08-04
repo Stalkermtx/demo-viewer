@@ -11,4 +11,5 @@ export const WA_MESSAGES = {
   finalCta: "Olá! Estou pronto para ativar meu teste grátis da Vorax Lovable. Bora começar? 💸",
   calculator: (spend: number, monthly: number, yearly: number) =>
     `Olá! Simulei na calculadora da Vorax Lovable: gasto atual R$ ${formatBRL(spend)}/mês, economia de R$ ${formatBRL(monthly)}/mês (R$ ${formatBRL(yearly)}/ano). Quero começar a economizar!`,
+  footerSupport: "Olá! Preciso de suporte VIP para o Vorax Lovable. Pode me ajudar?",
 } as const;

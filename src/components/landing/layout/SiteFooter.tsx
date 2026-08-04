@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { FOOTER_LINKS, WA_MESSAGES, wa } from "@/lib/landing";
+import type { NavLink } from "@/lib/landing";
 
 export const SiteFooter = memo(function SiteFooter() {
   const year = new Date().getFullYear();
@@ -24,7 +25,7 @@ export const SiteFooter = memo(function SiteFooter() {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-white/90">Navegação</h4>
             <ul className="mt-6 space-y-4">
-              {FOOTER_LINKS.map((l) => (
+              {FOOTER_LINKS.map((l: NavLink) => (
                 <li key={l.href}>
                   <a href={l.href} className="text-sm text-white/50 transition hover:text-white">
                     {l.label}
