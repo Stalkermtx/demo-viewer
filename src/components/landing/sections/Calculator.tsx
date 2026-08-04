@@ -8,7 +8,7 @@ import {
   formatBRL,
   wa,
 } from "@/lib/landing";
-import { GradientValue, SectionHeading } from "../ui";
+import { GradientValue, SectionHeading, WhatsAppCta } from "../ui";
 
 export const Calculator = memo(function Calculator() {
   const [spend, setSpend] = useState(200);
