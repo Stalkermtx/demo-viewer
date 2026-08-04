@@ -14,9 +14,13 @@ export const SectionHeading = memo(function SectionHeading({
 }) {
   return (
     <div className={`text-center ${className}`}>
-      <div className="text-xs font-semibold uppercase tracking-widest text-pink-400">{eyebrow}</div>
-      <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">{title}</h2>
-      {subtitle && <p className="mx-auto mt-4 max-w-xl text-white/60">{subtitle}</p>}
+      <div className="inline-block rounded-full bg-pink-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-pink-400 border border-pink-500/20">
+        {eyebrow}
+      </div>
+      <h2 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-6xl bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">
+        {title}
+      </h2>
+      {subtitle && <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/60">{subtitle}</p>}
     </div>
   );
 });

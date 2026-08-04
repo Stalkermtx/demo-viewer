@@ -1,3 +1,4 @@
+/* Execute esta instrucao no projeto: melhorias para deixar o site mais moderno */
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";

@@ -19,38 +19,38 @@ export const ComparisonTable = memo(function ComparisonTable() {
     <section id="comparativo" className="relative z-10 mx-auto max-w-6xl px-6 py-20">
       <SectionHeading eyebrow="Comparativo" title="Compare os planos lado a lado" className="mb-10" />
 
-      <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur">
+      <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl shadow-2xl">
         <table className="w-full min-w-[640px] text-left text-sm">
           <caption className="sr-only">
             Comparativo de recursos entre os planos Starter, Pro Elite e Studio
           </caption>
           <thead>
-            <tr className="border-b border-white/10 text-xs uppercase tracking-widest text-white/50">
-              <th scope="col" className="p-5 font-semibold">Recurso</th>
-              <th scope="col" className="p-5 text-center font-semibold">Starter</th>
-              <th scope="col" className="p-5 text-center font-semibold">
+            <tr className="border-b border-white/10 text-[10px] uppercase tracking-widest text-white/50">
+              <th scope="col" className="p-6 font-bold">Recurso</th>
+              <th scope="col" className="p-6 text-center font-bold">Starter</th>
+              <th scope="col" className="p-6 text-center font-bold bg-white/5">
                 <span className="inline-flex items-center gap-2">
                   <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                     Pro Elite
                   </span>
-                  <span className="rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                  <span className="rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-2 py-0.5 text-[8px] font-black text-white shadow-sm">
                     TOP
                   </span>
                 </span>
               </th>
-              <th scope="col" className="p-5 text-center font-semibold">Studio</th>
+              <th scope="col" className="p-6 text-center font-bold">Studio</th>
             </tr>
           </thead>
           <tbody className="text-white/80">
             {COMPARISON_ROWS.map((row, i) => (
-              <tr key={row.label} className={i % 2 ? "bg-white/[0.02]" : ""}>
-                <th scope="row" className="p-4 text-left font-medium text-white/90">
+              <tr key={row.label} className={`border-b border-white/5 last:border-0 ${i % 2 ? "bg-white/[0.01]" : ""}`}>
+                <th scope="row" className="p-5 text-left font-medium text-white/90">
                   {row.label}
                 </th>
                 {row.values.map((v, idx) => (
                   <td
                     key={`${row.label}-${idx}`}
-                    className={`p-4 text-center ${idx === 1 ? "bg-gradient-to-b from-pink-500/5 to-violet-500/5" : ""}`}
+                    className={`p-5 text-center transition-colors hover:bg-white/5 ${idx === 1 ? "bg-white/[0.03] font-semibold text-white" : ""}`}
                   >
                     <CellValue value={v} />
                   </td>
