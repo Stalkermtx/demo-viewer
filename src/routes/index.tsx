@@ -1,4 +1,4 @@
-/* Execute esta instrucao no projeto: modernidade (UX/UI) e conversão. */
+/* Execute esta instrucao no projeto: TEM COMO CRIAR UM APP ANDOIED? */
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";
