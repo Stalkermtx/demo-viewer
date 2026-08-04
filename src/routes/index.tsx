@@ -1,4 +1,4 @@
-/* Execute esta instrucao no projeto: novas funções que possamos colocar */
+/* Execute esta instrucao no projeto: modernidade (UX/UI) e conversão. */
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";
