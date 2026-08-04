@@ -6,27 +6,31 @@ import { SectionHeading, WhatsAppCta } from "../ui";
 const PlanCard = memo(function PlanCard({ plan }: { plan: Plan }) {
   return (
     <div
-      className={`plan-card relative rounded-3xl border p-8 backdrop-blur ${
+      className={`plan-card group relative rounded-3xl border p-8 backdrop-blur-xl ${
         plan.highlight
-          ? "border-transparent bg-gradient-to-b from-violet-600/20 via-pink-500/10 to-orange-500/10 shadow-[0_20px_60px_-20px_rgba(236,72,153,0.5)]"
-          : "border-white/10 bg-white/[0.03] hover:border-white/20"
+          ? "border-pink-500/30 bg-white/[0.05] ring-1 ring-pink-500/20"
+          : "border-white/10 bg-white/[0.02] hover:border-white/20"
       }`}
     >
-      {plan.highlight && (
-        <div className="absolute inset-x-0 -top-3 mx-auto w-fit rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-4 py-1 text-xs font-bold uppercase tracking-wider">
+      {plan.badge && (
+        <div className={`absolute inset-x-0 -top-3 mx-auto w-fit rounded-full px-4 py-1 text-[10px] font-bold uppercase tracking-wider shadow-lg ${
+          plan.highlight 
+            ? "bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 text-white" 
+            : "bg-white/10 text-white/80 border border-white/10 backdrop-blur-md"
+        }`}>
           {plan.badge}
         </div>
       )}
-      <div className="text-sm font-semibold text-white/70">{plan.name}</div>
+      <div className="text-sm font-semibold text-white/70 uppercase tracking-widest">{plan.name}</div>
       <div className="mt-3 flex items-baseline gap-1">
-        <span className="text-5xl font-bold tracking-tight">{plan.price}</span>
+        <span className="text-5xl font-bold tracking-tight text-white">{plan.price}</span>
         <span className="text-white/50">{plan.period}</span>
       </div>
-      {!plan.highlight && <div className="mt-2 text-xs text-white/50">{plan.badge}</div>}
-      <ul className="mt-6 space-y-3 text-sm">
+      
+      <ul className="mt-8 space-y-4 text-sm">
         {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2 text-white/80">
-            <span className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-gradient-to-br from-violet-500 to-pink-500 text-[10px]">
+          <li key={f} className="flex items-start gap-3 text-white/80">
+            <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-pink-500/10 text-pink-400 text-[10px]">
               ✓
             </span>
             {f}
@@ -36,9 +40,9 @@ const PlanCard = memo(function PlanCard({ plan }: { plan: Plan }) {
       <WhatsAppCta
         message={plan.waMessage}
         variant={plan.highlight ? "gradient" : "outline"}
-        className={`mt-8 w-full py-3 text-sm ${plan.highlight ? "" : "bg-white/5"}`}
+        className={`mt-10 w-full py-3.5 text-sm transition-all duration-300 ${plan.highlight ? "" : "bg-white/5 hover:bg-white/10"}`}
       >
-        Ativar agora
+        Selecionar {plan.name}
       </WhatsAppCta>
     </div>
   );
