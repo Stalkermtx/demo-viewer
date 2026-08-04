@@ -217,26 +217,35 @@ iframe[src*="lovable.dev/badge"] {
 
 /* Light mode overrides for the landing page */
 .vorax-light {
-  background: #f6f5fb !important;
-  color: #0f172a !important;
+  --background: oklch(0.98 0.01 260);
+  --foreground: oklch(0.2 0.05 260);
+  --surface: rgba(15, 23, 42, 0.04);
+  --surface-border: rgba(15, 23, 42, 0.1);
+  background: var(--background) !important;
+  color: var(--foreground) !important;
 }
-.vorax-light .text-white { color: #0f172a !important; }
-.vorax-light .text-white\/90 { color: rgba(15,23,42,0.90) !important; }
-.vorax-light .text-white\/80 { color: rgba(15,23,42,0.80) !important; }
-.vorax-light .text-white\/70 { color: rgba(15,23,42,0.72) !important; }
-.vorax-light .text-white\/60 { color: rgba(15,23,42,0.62) !important; }
-.vorax-light .text-white\/50 { color: rgba(15,23,42,0.55) !important; }
-.vorax-light .text-white\/40 { color: rgba(15,23,42,0.45) !important; }
-.vorax-light .bg-white\/\[0\.03\] { background-color: rgba(15,23,42,0.03) !important; }
-.vorax-light .bg-white\/\[0\.06\] { background-color: rgba(15,23,42,0.06) !important; }
-.vorax-light .bg-white\/5 { background-color: rgba(15,23,42,0.05) !important; }
-.vorax-light .bg-white\/10 { background-color: rgba(15,23,42,0.08) !important; }
-.vorax-light .border-white\/5 { border-color: rgba(15,23,42,0.08) !important; }
-.vorax-light .border-white\/10 { border-color: rgba(15,23,42,0.10) !important; }
-.vorax-light .border-white\/15 { border-color: rgba(15,23,42,0.15) !important; }
-.vorax-light .border-white\/20 { border-color: rgba(15,23,42,0.22) !important; }
-.vorax-light .from-white { --tw-gradient-from: #0f172a !important; }
-.vorax-light .to-white\/60 { --tw-gradient-to: rgba(15,23,42,0.6) !important; }
+
+.vorax-light .text-white { color: var(--foreground) !important; }
+.vorax-light .text-white\/90 { color: oklch(0.25 0.05 260) !important; }
+.vorax-light .text-white\/80 { color: oklch(0.3 0.05 260) !important; }
+.vorax-light .text-white\/70 { color: oklch(0.4 0.05 260) !important; }
+.vorax-light .text-white\/60 { color: oklch(0.5 0.05 260) !important; }
+.vorax-light .text-white\/50 { color: oklch(0.6 0.05 260) !important; }
+.vorax-light .text-white\/40 { color: oklch(0.7 0.05 260) !important; }
+
+.vorax-light .bg-white\/\[0\.03\] { background-color: var(--surface) !important; }
+.vorax-light .bg-white\/\[0\.06\] { background-color: rgba(15, 23, 42, 0.08) !important; }
+.vorax-light .bg-white\/5 { background-color: rgba(15, 23, 42, 0.05) !important; }
+.vorax-light .bg-white\/10 { background-color: rgba(15, 23, 42, 0.12) !important; }
+
+.vorax-light .border-white\/5 { border-color: var(--surface-border) !important; }
+.vorax-light .border-white\/10 { border-color: rgba(15, 23, 42, 0.15) !important; }
+.vorax-light .border-white\/15 { border-color: rgba(15, 23, 42, 0.20) !important; }
+.vorax-light .border-white\/20 { border-color: rgba(15, 23, 42, 0.25) !important; }
+
+.vorax-light .from-white { --tw-gradient-from: var(--foreground) !important; }
+.vorax-light .to-white\/60 { --tw-gradient-to: oklch(0.5 0.05 260) !important; }
+
 
 /* 3D tilt + glow for plan cards */
 .plan-card {
