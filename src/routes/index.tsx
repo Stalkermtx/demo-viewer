@@ -1,4 +1,4 @@
-/* Execute esta instrucao no projeto: SIM QUERO */
+/* Execute esta instrucao no projeto: OUTRAS MELHORIAS ? */
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";
