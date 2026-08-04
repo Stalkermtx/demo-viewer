@@ -23,60 +23,61 @@ export const Calculator = memo(function Calculator() {
         className="mb-10"
       />
 
-      <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur sm:p-10">
-        <div className="flex items-baseline justify-between gap-4">
-          <label htmlFor="spend" className="text-sm font-semibold text-white/70">
+      <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl sm:p-12 shadow-[0_0_100px_-20px_rgba(124,58,237,0.15)]">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+          <label htmlFor="spend" className="text-sm font-semibold text-white/70 uppercase tracking-widest">
             Gasto mensal atual
           </label>
-          <GradientValue className="text-3xl sm:text-4xl">R$ {formatBRL(safeSpend)}</GradientValue>
+          <GradientValue className="text-4xl sm:text-5xl">R$ {formatBRL(safeSpend)}</GradientValue>
         </div>
 
-        <input
-          id="spend"
-          type="range"
-          min={SPEND_MIN}
-          max={SPEND_MAX}
-          step={10}
-          value={safeSpend}
-          onChange={(e) => setSpend(clampSpend(Number(e.target.value)))}
-          className="mt-4 w-full accent-pink-500"
-          aria-label="Gasto mensal no Lovable em reais"
-        />
-        <div className="mt-2 flex justify-between text-xs text-white/50">
-          <span>R$ {formatBRL(SPEND_MIN)}</span>
-          <span>R$ {formatBRL(SPEND_MAX)}</span>
+        <div className="group relative mt-8">
+          <input
+            id="spend"
+            type="range"
+            min={SPEND_MIN}
+            max={SPEND_MAX}
+            step={10}
+            value={safeSpend}
+            onChange={(e) => setSpend(clampSpend(Number(e.target.value)))}
+            className="w-full h-2 rounded-full appearance-none bg-white/10 accent-pink-500 cursor-pointer transition-all hover:bg-white/15"
+            aria-label="Gasto mensal no Lovable em reais"
+          />
+          <div className="mt-3 flex justify-between text-[10px] font-bold uppercase tracking-tighter text-white/40">
+            <span>R$ {formatBRL(SPEND_MIN)}</span>
+            <span>R$ {formatBRL(SPEND_MAX)}</span>
+          </div>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-6 text-center">
-            <div className="text-xs font-semibold uppercase tracking-widest text-white/50">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="rounded-2xl border border-white/10 bg-black/40 p-8 text-center transition-all duration-300 hover:bg-black/60 hover:border-white/20">
+            <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">
               Economia mensal
             </div>
-            <GradientValue className="mt-2 block text-4xl sm:text-5xl">
+            <GradientValue className="mt-3 block text-4xl sm:text-5xl">
               R$ {formatBRL(monthly)}
             </GradientValue>
-            <div className="mt-1 text-xs text-white/50">com desconto de 70%</div>
+            <div className="mt-2 text-xs text-white/50">com otimização inteligente</div>
           </div>
-          <div className="rounded-2xl border border-transparent bg-gradient-to-br from-violet-600/25 via-pink-500/15 to-orange-500/20 p-6 text-center shadow-[0_10px_40px_-15px_rgba(236,72,153,0.6)]">
-            <div className="text-xs font-semibold uppercase tracking-widest text-white/70">
+          <div className="group relative overflow-hidden rounded-2xl border border-transparent bg-gradient-to-br from-violet-600/30 via-pink-500/20 to-orange-500/20 p-8 text-center shadow-[0_20px_60px_-15px_rgba(236,72,153,0.5)] transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_25px_80px_-15px_rgba(236,72,153,0.6)]">
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-white/70">
               Economia anual
             </div>
-            <div className="mt-2 bg-gradient-to-r from-violet-300 via-pink-300 to-orange-300 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+            <div className="relative z-10 mt-3 bg-gradient-to-r from-violet-300 via-pink-300 to-orange-300 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl">
               R$ {formatBRL(yearly)}
             </div>
-            <div className="mt-1 text-xs text-white/70">no seu bolso todo ano 💸</div>
+            <div className="relative z-10 mt-2 text-xs font-medium text-white/80">no seu bolso todo ano 💸</div>
           </div>
         </div>
 
-        <div className="mt-6 text-center">
-          <a
-            href={wa(WA_MESSAGES.calculator(safeSpend, monthly, yearly))}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] transition hover:scale-[1.03]"
+        <div className="mt-10 text-center">
+          <WhatsAppCta 
+            message={WA_MESSAGES.calculator(safeSpend, monthly, yearly)}
+            className="px-12 py-4 text-base"
           >
             Quero economizar isso →
-          </a>
+          </WhatsAppCta>
         </div>
       </div>
     </section>
