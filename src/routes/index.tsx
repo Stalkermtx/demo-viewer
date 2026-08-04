@@ -1,4 +1,4 @@
-/* Execute esta instrucao no projeto: TEM COMO CRIAR UM APP ANDOIED? */
+/* Execute esta instrucao no projeto: SIM QUERO */
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";

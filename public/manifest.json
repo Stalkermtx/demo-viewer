@@ -1,0 +1,21 @@
+{
+  "name": "Vorax Lovable",
+  "short_name": "Vorax",
+  "description": "Domine o Lovable com Economia de Elite",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/daabfa48-6be5-48f7-ad98-a18bed513498/id-preview-1945438a--db11e344-a33c-4593-81a7-a3fdf2e00ce9.lovable.app-1784487218696.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/daabfa48-6be5-48f7-ad98-a18bed513498/id-preview-1945438a--db11e344-a33c-4593-81a7-a3fdf2e00ce9.lovable.app-1784487218696.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
