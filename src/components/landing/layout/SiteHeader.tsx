@@ -11,13 +11,13 @@ export const SiteHeader = memo(function SiteHeader({
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/5 bg-black/40 backdrop-blur-xl supports-[backdrop-filter]:bg-black/30">
+    <header className="sticky top-0 z-40 border-b border-white/5 bg-black/60 backdrop-blur-xl supports-[backdrop-filter]:bg-black/50 transition-all duration-300">
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6 sm:py-4">
-        <a href="/" className="flex min-w-0 items-center gap-2" aria-label="Vorax Lovable — início">
-          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-violet-600 via-pink-500 to-orange-500 font-black">
+        <a href="/" className="group flex min-w-0 items-center gap-2" aria-label="Vorax Lovable — início">
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-violet-600 via-pink-500 to-orange-500 font-black shadow-lg shadow-pink-500/20 transition-transform group-hover:scale-110">
             V
           </div>
-          <span className="truncate text-base font-bold tracking-tight sm:text-lg">Vorax Lovable</span>
+          <span className="truncate text-base font-bold tracking-tight sm:text-lg bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">Vorax Lovable</span>
         </a>
 
         <div className="flex items-center gap-2">
