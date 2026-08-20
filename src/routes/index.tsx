@@ -18,6 +18,8 @@ import {
   Hero,
   HowItWorks,
   Pricing,
+  ProofSocial,
+  Testimonials,
 } from "@/components/landing/sections";
 import { useExtensionDownload } from "@/hooks/use-extension-download";
 import ogImage from "@/assets/og-primo-tech.jpg";
@@ -77,11 +79,14 @@ function VoraxLandingPage() {
         <Calculator />
         <Pricing />
         <ComparisonTable />
+        <Testimonials />
         <Faq />
         <FinalCta />
       </main>
 
       <SiteFooter />
+
+      <ProofSocial />
 
       <MobileCtaBar onDownload={downloadExtension} />
       <FloatingControls
