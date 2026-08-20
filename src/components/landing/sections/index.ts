@@ -4,5 +4,7 @@ export * from "./HowItWorks";
 export * from "./Calculator";
 export * from "./Pricing";
 export * from "./ComparisonTable";
+export * from "./Testimonials";
+export * from "./ProofSocial";
 export * from "./Faq";
 export * from "./FinalCta";

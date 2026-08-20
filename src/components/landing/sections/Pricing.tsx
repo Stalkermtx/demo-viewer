@@ -61,6 +61,23 @@ export const Pricing = memo(function Pricing() {
           <PlanCard key={p.name} plan={p} />
         ))}
       </div>
+
+      <div className="mt-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
+        <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
+          <span className="text-3xl">🛡️</span>
+          <div className="text-left">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider">7 Dias de Garantia</h4>
+            <p className="text-xs text-white/50">Satisfação garantida ou seu dinheiro de volta.</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
+          <span className="text-3xl">🔒</span>
+          <div className="text-left">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Pagamento Seguro</h4>
+            <p className="text-xs text-white/50">Seus dados protegidos com criptografia SSL.</p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 });
