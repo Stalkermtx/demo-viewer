@@ -6,6 +6,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: "#recursos", label: "Recursos" },
   { href: "#como-funciona", label: "Como funciona" },
   { href: "#calculadora", label: "Calculadora" },
+  { href: "#depoimentos", label: "Depoimentos" },
   { href: "#planos", label: "Planos" },
   { href: "#comparativo", label: "Comparativo" },
   { href: "#faq", label: "FAQ" },
@@ -13,7 +14,7 @@ export const NAV_LINKS: NavLink[] = [
 
 export const DESKTOP_NAV_LINKS: NavLink[] = [
   { href: "#recursos", label: "Recursos" },
-  { href: "#como-funciona", label: "Como funciona" },
+  { href: "#depoimentos", label: "Depoimentos" },
   { href: "#planos", label: "Planos" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -21,6 +22,7 @@ export const DESKTOP_NAV_LINKS: NavLink[] = [
 export const FOOTER_LINKS: NavLink[] = [
   { href: "#recursos", label: "Recursos" },
   { href: "#como-funciona", label: "Como funciona" },
+  { href: "#depoimentos", label: "Depoimentos" },
   { href: "#planos", label: "Planos" },
   { href: "#calculadora", label: "Calculadora" },
   { href: "#comparativo", label: "Comparativo" },

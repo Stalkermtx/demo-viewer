@@ -28,6 +28,7 @@ export const Testimonials = memo(function Testimonials() {
     <section id="depoimentos" className="py-24 px-5">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
+          eyebrow="Depoimentos"
           title="Quem usa, recomenda"
           subtitle="Junte-se a mais de 12.000 desenvolvedores que já economizam diariamente."
         />
