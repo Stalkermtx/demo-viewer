@@ -23,7 +23,7 @@ export const Hero = memo(function Hero({ onDownload }: { onDownload: ExtensionDo
       >
         Domine o Lovable com{" "}
         <span className="bg-gradient-to-r from-violet-400 via-pink-500 to-orange-400 bg-clip-text text-transparent animate-gradient-x">
-          Economia de Elite
+          Nexus Economia de Elite
         </span>
       </h1>
 
