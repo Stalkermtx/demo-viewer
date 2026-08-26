@@ -25,7 +25,7 @@ import { useExtensionDownload } from "@/hooks/use-extension-download";
 import ogImage from "@/assets/og-primo-tech.jpg";
 
 const OG_IMAGE_URL = `https://demo-viewer.lovable.app${ogImage}`;
-const TITLE = "Vorax Lovable — Domine o Lovable com Economia de Elite";
+const TITLE = "Vorax Lovable — Domine o Lovable com Nexus Economia de Elite";
 const DESCRIPTION =
   "A Extensão Vorax Lovable turbina seu workspace Lovable com economia real de até 70%. Ative planos premium, suporte VIP e teste grátis imediato.";
 
@@ -58,7 +58,7 @@ function VoraxLandingPage() {
 
   return (
     <div
-      className={`relative min-h-screen overflow-x-hidden ${light ? "vorax-light" : "bg-[#050505] text-white"}`}
+      className={`relative min-h-screen overflow-x-hidden ${light ? "vorax-light" : "bg-[#0b0f19] text-white"}`}
     >
       <MoneyRain />
       <Background />
