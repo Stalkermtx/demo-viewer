@@ -2,6 +2,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { MoneyRain } from "@/components/MoneyRain";
+import { LoadingPage } from "@/components/LoadingPage";
 import {
   Background,
   FloatingControls,
@@ -51,10 +52,15 @@ export const Route = createFileRoute("/")({
 function VoraxLandingPage() {
   const [muted, setMuted] = useState(true);
   const [light, setLight] = useState(false);
+  const [loadingDone, setLoadingDone] = useState(false);
 
   const downloadExtension = useExtensionDownload();
   const toggleMute = useCallback(() => setMuted((m) => !m), []);
   const toggleTheme = useCallback(() => setLight((l) => !l), []);
+
+  if (!loadingDone) {
+    return <LoadingPage onComplete={() => setLoadingDone(true)} />;
+  }
 
   return (
     <div
